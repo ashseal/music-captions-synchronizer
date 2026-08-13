@@ -12,5 +12,7 @@ Any .srt destination, if it exists, will be overwritten.
 Default current working directory is set to the parent folder of captions_generator.py
 
 Run captions_generator.py, and type in the information necessary.
+After the .srt file is generated, you can use it in for example your YouTube video:
+<img width="1242" height="782" alt="image" src="https://github.com/user-attachments/assets/ca9dda03-0c69-4e8e-aa41-d44e2017e308" />
 
 I haven't coded in a long time so excuse me for any ridiculous codes lol.
