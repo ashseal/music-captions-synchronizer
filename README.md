@@ -1,6 +1,6 @@
 Made by vietanh266: http://www.youtube.com/@vietanh266piano
 
-I coded this so I don't have to waste time calculating where the next caption is to sync with the music.
+I coded this so I don't have to waste time pulling out a calculator to calculate where the next caption should be to sync with the music.
 Might help others as well so feel free to use this however you want.
 
 This can only make .srt files! (Which is what YouTube uses)
