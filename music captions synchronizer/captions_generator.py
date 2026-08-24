@@ -42,18 +42,21 @@ def create_srt_format(subtitles:str, bpm:float, beats_per_line:float, beat_offse
 
     return srt_format_lines, timestampify(starting_seconds), timestampify(previous_seconds) # ending time
 
-def write_to_file(file_location:str, content:list):
+def overwrite_file(file_location:str, content:list):
     with open(file_location, "a") as srt_file:
+        srt_file.seek(0)
+        srt_file.truncate()
         srt_file.writelines(content)
 
 def init_generation(source_location:str, destination_location:str, bpm:float, beats_per_line:float, beat_offset:float, millisecond_offset:float):
     # you can maybe generate multiple files using this function, if you need to.
     with open(source_location, "r") as text_file:
+         # please check if your file is opened in another program and turn it off
         subtitles = text_file.read()
 
     srt_format_lines, starting_timestamp, ending_timestamp = create_srt_format(subtitles, bpm, beats_per_line, beat_offset, millisecond_offset)
 
-    write_to_file(destination_location, srt_format_lines)
+    overwrite_file(destination_location, srt_format_lines)
 
     print(f"Finished synchronizing {len(str.split(subtitles, "\n"))} lines, starts at {starting_timestamp} , ends at {ending_timestamp}")
 
@@ -64,7 +67,7 @@ def interface():
     source_location = prompt_source_location()
     while True:
         if not os.path.exists(source_location):
-            print("Source doesn't exist, make sure no other marks like '', " + '""' +", & are kept")
+            print("Source doesn't exist, make sure no *extra* marks like '', " + '""' +", & are kept")
             source_location = prompt_source_location()
         else: break
 
